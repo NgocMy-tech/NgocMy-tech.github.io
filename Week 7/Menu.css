@@ -1,0 +1,40 @@
+@charset "utf-8";
+
+.menu div {
+  width: 150px;
+  height: 32px;
+  background: -webkit-linear-gradient(top, lab(23.83% 45.14 28.17), #999, #000) repeat-x;
+  background: -o-linear-gradient(top, hsl(346, 83%, 30%), #999, #000) repeat-x;
+  background: -ms-linear-gradient(top, hsl(0, 90%, 31%), #999, #000) repeat-x;
+  background: -moz-linear-gradient(top, hsl(0, 85%, 29%), #999, #000) repeat-x;
+  border-radius: 20px 20px 0px 0px;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+  text-transform: uppercase;
+}
+
+.menu ul {
+  list-style: inside url(../img/about.gif);
+  box-shadow: 5px 5px 10px hwb(143 22% 12%);
+  border: 1px solid hsl(150, 87%, 38%);
+  width: 148px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.menu li {
+  padding: 5px;
+  width: 138px;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+.menu li:hover {
+  background-color: rgb(153, 255, 243);
+  font-weight: bold;
+  color: rgb(255, 0, 68);
+}
+
