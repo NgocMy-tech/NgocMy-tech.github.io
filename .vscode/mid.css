@@ -1,0 +1,17 @@
+/* CSS cho heading */
+h2 {
+  color: darkblue;
+  font-family: Arial, sans-serif;
+}
+
+/* CSS cho giá mới */
+.new-price {
+  color: red;          /* màu đỏ */
+  font-weight: bold;   /* in đậm */
+}
+
+/* CSS tổng thể cho body */
+body {
+  font-family: Arial, sans-serif;
+  margin: 40px;
+}
