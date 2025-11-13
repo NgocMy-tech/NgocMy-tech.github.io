@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Birthday</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        @keyframes shake {
+          0%, 100% { transform: translateX(0); }
+          10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+          20%, 40%, 60%, 80% { transform: translateX(10px); }
+        }
+        .shake-error {
+          animation: shake 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-pink-50 font-sans">
+
+    <div id="page-1-password" class="min-h-screen flex flex-col items-center justify-center p-4">
+        
+        <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-sm text-center">
+            <h1 class="text-4xl font-bold text-pink-500 mb-4">
+                My birthday
+            </h1>
+            
+            <p class="text-gray-600 mb-6">
+                Vui lòng nhập mật mã để tiếp tục
+            </p>
+            
+            <input type="password" id="password-input" 
+                   class="w-full px-4 py-3 border-2 border-pink-200 rounded-lg text-center text-lg focus:outline-none focus:border-pink-400"
+                   placeholder="******">
+                   
+            <p id="error-message" class="text-red-500 h-6 mt-2 text-sm">
+                </p>
+            
+            <button id="submit-button" 
+                    class="w-full bg-pink-500 text-white font-bold py-3 px-6 rounded-lg mt-4 transition-transform duration-200 hover:bg-pink-600 active:scale-95">
+                Vào cổng
+            </button>
+        </div>
+        
+        <p class="text-pink-300 mt-8 text-sm">
+            Gợi ý: 07/11/2005 🎂
+        </p>
+    </div>
+
+    <div id="page-2-secret" class="hidden min-h-screen flex-col items-center justify-center p-4 text-center">
+        
+        <div class="bg-white p-12 rounded-2xl shadow-xl w-full max-w-md">
+            <span class="text-8xl mb-6">🥳</span>
+            <h1 class="text-4xl font-bold text-blue-500 mb-4">
+                CHÚC MỪNG!
+            </h1>
+            <p class="text-gray-700 text-lg mb-8">
+                Bạn đã mở khóa được trang bí mật!
+            </p>
+            
+            <button id="back-button" class="text-gray-500 text-sm hover:underline">
+                Quay lại
+            </button>
+        </div>
+        
+    </div>
+    
+    
+    <script>
+        // Chờ cho trang web tải xong
+        document.addEventListener('DOMContentLoaded', () => {
+        
+            // 1. Định nghĩa mật khẩu đúng (ĐÃ SỬA)
+            const CORRECT_PASSWORD = "07112005";
+
+            // 2. Lấy các bộ phận ra để điều khiển
+            const page1 = document.getElementById('page-1-password');
+            const page2 = document.getElementById('page-2-secret');
+            
+            const passwordInput = document.getElementById('password-input');
+            const submitButton = document.getElementById('submit-button');
+            const errorMessage = document.getElementById('error-message');
+            const backButton = document.getElementById('back-button');
+
+            // 3. Hàm để kiểm tra mật khẩu
+            function checkPassword() {
+                const enteredPassword = passwordInput.value;
+                
+                if (enteredPassword === CORRECT_PASSWORD) {
+                    // Nếu ĐÚNG:
+                    // Ẩn trang 1, hiện trang 2
+                    page1.classList.add('hidden');
+                    page2.classList.remove('hidden');
+                    page2.classList.add('flex'); // Phải thêm flex để nó căn giữa
+                    
+                    // Xóa lỗi (nếu có)
+                    errorMessage.textContent = '';
+                    
+                } else {
+                    // Nếu SAI:
+                    // Hiện thông báo lỗi
+                    errorMessage.textContent = 'Mật mã sai! Thử lại nha.';
+                    
+                    // Thêm class 'shake-error' để rung lắc
+                    passwordInput.classList.add('shake-error');
+                    
+                    // Xóa class rung lắc sau 0.5s
+                    setTimeout(() => {
+                        passwordInput.classList.remove('shake-error');
+                    }, 500);
+                    
+                    // Xóa mật khẩu đã nhập
+                    passwordInput.value = '';
+                }
+            }
+
+            // 4. Gán hành động cho các nút
+            
+            // Bấm nút "Vào cổng"
+            submitButton.addEventListener('click', checkPassword);
+            
+            // Gõ "Enter" trong ô mật khẩu
+            passwordInput.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter') {
+                    checkPassword();
+                }
+            });
+
+            // Bấm nút "Quay lại" ở trang 2
+            backButton.addEventListener('click', () => {
+                // Ẩn trang 2, hiện trang 1
+                page2.classList.add('hidden');
+                page2.classList.remove('flex');
+                page1.classList.remove('hidden');
+                
+                // Xóa mật khẩu cũ
+                passwordInput.value = '';
+            });
+            
+        });
+    </script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Birthday</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #FFF0F5; /* Màu nền hồng nhạt */
+            display: grid;
+            place-items: center;
+            min-height: 100vh;
+            text-align: center;
+            color: #5D4037; /* Màu nâu tối */
+            margin: 0;
+        }
+
+        h1 {
+            color: #D81B60; /* Màu hồng đậm */
+            font-weight: 600;
+        }
+
+        /* ==== CSS cho hiệu ứng rung lắc khi nhập sai ==== */
+        @keyframes shake {
+          0%, 100% { transform: translateX(0); }
+          10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+          20%, 40%, 60%, 80% { transform: translateX(10px); }
+        }
+        .shake-error {
+          animation: shake 0.5s ease-in-out;
+        }
+
+        /* ==== CSS cho SVG Capybara Animation ==== */
+        #capybara-svg {
+            width: 80%;
+            max-width: 300px; /* Điều chỉnh kích thước capybara trên trang 2 */
+            overflow: visible; 
+            margin: 0 auto 20px auto; /* Căn giữa và tạo khoảng cách */
+        }
+
+        #capybara-path {
+            stroke-dasharray: 1;
+            stroke-dashoffset: 1;
+            /* Animation này sẽ được gọi bằng JS khi trang 2 hiện ra */
+            /* animation: draw-capy 6s ease-in-out forwards; */
+        }
+
+        @keyframes draw-capy {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+    </style>
+</head>
+<body class="bg-pink-50 font-sans">
+
+    <div id="page-1-password" class="min-h-screen flex flex-col items-center justify-center p-4">
+        
+        <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-sm text-center">
+            <h1 class="text-4xl font-bold text-pink-500 mb-4">
+                My birthday
+            </h1>
+            
+            <p class="text-gray-600 mb-6">
+                Vui lòng nhập mật mã để tiếp tục
+            </p>
+            
+            <input type="password" id="password-input" 
+                   class="w-full px-4 py-3 border-2 border-pink-200 rounded-lg text-center text-lg focus:outline-none focus:border-pink-400"
+                   placeholder="******">
+                   
+            <p id="error-message" class="text-red-500 h-6 mt-2 text-sm">
+                </p>
+            
+            <button id="submit-button" 
+                    class="w-full bg-pink-500 text-white font-bold py-3 px-6 rounded-lg mt-4 transition-transform duration-200 hover:bg-pink-600 active:scale-95">
+                Vào cổng
+            </button>
+        </div>
+        
+        <p class="text-pink-300 mt-8 text-sm">
+            Gợi ý: 07/11/2005 🎂
+        </p>
+    </div>
+
+    <div id="page-2-secret" class="hidden min-h-screen flex-col items-center justify-center p-4 text-center">
+        
+        <div class="bg-white p-12 rounded-2xl shadow-xl w-full max-w-md">
+            <span class="text-8xl mb-6">🥳</span>
+            <h1 class="text-4xl font-bold text-blue-500 mb-4">
+                CHÚC MỪNG!
+            </h1>
+            <p class="text-gray-700 text-lg mb-8">
+                Bạn đã mở khóa được trang bí mật!
+            </p>
+
+            <svg id="capybara-svg" viewBox="0 0 400 450">
+                <defs>
+                    <pattern id="heartPatternBlue"
+                             viewBox="0 0 20 20"
+                             width="25" height="25"
+                             patternUnits="userSpaceOnUse"
+                             overflow="visible">
+                        <path d="M10,18 C10,18 1.5,12 1.5,6.5 C1.5,3 4.5,1 7.5,1 C9,1 10,2 10,2 C10,2 11,1 12.5,1 C15.5,1 18.5,3 18.5,6.5 C18.5,12 10,18 10,18 Z"
+                              fill="#2196F3" /> </pattern>
+                </defs>
+
+                <path id="capybara-path"
+                      d="M 200,80                     
+                         C 250,50 300,100 300,160      
+                         C 310,220 280,270 200,270      
+                         C 120,270 90,220 100,160      
+                         C 100,100 150,50 200,80      
+                         
+                         M 170,140 q 10,-10 20,0 q 10,10 0,20 q -10,10 -20,0 z 
+                         M 150,180 q 10,-5 20,0 q 10,5 0,10 q -10,5 -20,0 z
+
+                         M 130,100 C 140,80 150,80 160,100   
+                         M 240,100 C 250,80 260,80 270,100   
+
+                         M 150,220 Q 160,210 170,220 Q 160,230 150,220 Z 
+                         M 230,220 Q 240,210 250,220 Q 240,230 230,220 Z
+
+                         M 200,50 C 205,40 215,40 220,50 C 215,60 205,60 200,50 Z 
+
+                         M 100,300 C 50,320 50,380 100,400 
+                         C 150,420 250,420 300,400 
+                         C 350,380 350,320 300,300 
+                         M 200,270 C 150,290 150,330 200,350 C 250,330 250,290 200,270 Z
+                         
+                         M 250,250 C 270,260 270,290 250,300
+                         M 150,250 C 130,260 130,290 150,300
+                        "
+                      fill="none"
+                      stroke="url(#heartPatternBlue)" /* Dùng pattern trái tim xanh */
+                      stroke-width="15"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      pathLength="1" />
+            </svg>
+            
+            <button id="back-button" class="text-gray-500 text-sm hover:underline">
+                Quay lại
+            </button>
+        </div>
+        
+    </div>
+    
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+        
+            const CORRECT_PASSWORD = "07112005"; // Mật khẩu đã được cập nhật
+
+            const page1 = document.getElementById('page-1-password');
+            const page2 = document.getElementById('page-2-secret');
+            
+            const passwordInput = document.getElementById('password-input');
+            const submitButton = document.getElementById('submit-button');
+            const errorMessage = document.getElementById('error-message');
+            const backButton = document.getElementById('back-button');
+
+            // Thêm biến cho Capybara SVG
+            const capybaraPath = document.getElementById('capybara-path');
+
+            // Hàm để kích hoạt animation của Capybara
+            function startCapybaraAnimation() {
+                // Đặt lại stroke-dashoffset về 1 để animation chạy lại từ đầu
+                capybaraPath.style.animation = 'none'; // Tắt animation cũ
+                capybaraPath.offsetHeight; // Kích hoạt reflow để reset animation
+                capybaraPath.style.animation = 'draw-capy 6s ease-in-out forwards'; // Bật animation mới
+            }
+
+            function checkPassword() {
+                const enteredPassword = passwordInput.value;
+                
+                if (enteredPassword === CORRECT_PASSWORD) {
+                    page1.classList.add('hidden');
+                    page2.classList.remove('hidden');
+                    page2.classList.add('flex'); 
+                    
+                    errorMessage.textContent = '';
+
+                    // === Kích hoạt animation Capybara khi chuyển trang ===
+                    startCapybaraAnimation(); 
+                    
+                } else {
+                    errorMessage.textContent = 'Mật mã sai! Thử lại nha.';
+                    
+                    passwordInput.classList.add('shake-error');
+                    
+                    setTimeout(() => {
+                        passwordInput.classList.remove('shake-error');
+                    }, 500);
+                    
+                    passwordInput.value = '';
+                }
+            }
+
+            submitButton.addEventListener('click', checkPassword);
+            
+            passwordInput.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter') {
+                    checkPassword();
+                }
+            });
+
+            backButton.addEventListener('click', () => {
+                page2.classList.add('hidden');
+                page2.classList.remove('flex');
+                page1.classList.remove('hidden');
+                
+                passwordInput.value = '';
+
+                // === Khi quay lại, reset Capybara animation để lần sau hiện lại ===
+                capybaraPath.style.animation = 'none'; 
+                capybaraPath.style.strokeDashoffset = '1'; 
+            });
+            
+        });
+    </script>
+
+</body>
+</html>

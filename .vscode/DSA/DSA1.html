@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title or "Student Course Registration" }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <h1>🎓 Student Course Registration System</h1>
+    <nav>
+      <a href="{{ url_for('index') }}">🏠 Home</a>
+      <a href="{{ url_for('students') }}">👨‍🎓 Add Student</a>
+      <a href="{{ url_for('courses') }}">📘 Add Course</a>
+      <a href="{{ url_for('register') }}">📝 Register</a>
+      <a href="{{ url_for('dashboard') }}">📊 Dashboard</a>
+    </nav>
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer>
+    <p>© 2025 Student Registration | Built with ❤️ by Team DSA</p>
+  </footer>
+</body>
+</html>
+{% extends "base.html" %}
+{% block content %}
+<section class="home">
+  <h2>Welcome!</h2>
+  <p>This system allows you to add students, manage courses, and handle course registration using a <b>Hash Table</b> backend.</p>
+  <p>Use the navigation bar above to start.</p>
+  <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png" alt="student icon" class="home-img">
+</section>
+{% endblock %}
+{% extends "base.html" %}
+{% block content %}
+<section class="form-container">
+  <h2>Add New Student</h2>
+  <form method="POST">
+    <label>Student ID:</label>
+    <input type="text" name="sid" required>
+
+    <label>Name:</label>
+    <input type="text" name="name" required>
+
+    <label>Major:</label>
+    <input type="text" name="major" required>
+
+    <button type="submit">Add Student</button>
+  </form>
+
+  {% if message %}
+  <p class="message">{{ message }}</p>
+  {% endif %}
+</section>
+{% endblock %}
+{% extends "base.html" %}
+{% block content %}
+<section class="form-container">
+  <h2>Add New Course</h2>
+  <form method="POST">
+    <label>Course ID:</label>
+    <input type="text" name="cid" required>
+
+    <label>Course Name:</label>
+    <input type="text" name="name" required>
+
+    <label>Capacity:</label>
+    <input type="number" name="cap" required min="1">
+
+    <button type="submit">Add Course</button>
+  </form>
+
+  {% if message %}
+  <p class="message">{{ message }}</p>
+  {% endif %}
+</section>
+{% endblock %}
+{% extends "base.html" %}
+{% block content %}
+<section class="form-container">
+  <h2>Register Course</h2>
+  <form method="POST">
+    <label>Student ID:</label>
+    <input type="text" name="sid" required>
+
+    <label>Course ID:</label>
+    <input type="text" name="cid" required>
+
+    <button type="submit">Register</button>
+  </form>
+
+  {% if message %}
+  <p class="message">{{ message }}</p>
+  {% endif %}
+</section>
+{% endblock %}
+{% extends "base.html" %}
+{% block content %}
+<section class="form-container">
+  <h2>Register Course</h2>
+  <form method="POST">
+    <label>Student ID:</label>
+    <input type="text" name="sid" required>
+
+    <label>Course ID:</label>
+    <input type="text" name="cid" required>
+
+    <button type="submit">Register</button>
+  </form>
+
+  {% if message %}
+  <p class="message">{{ message }}</p>
+  {% endif %}
+</section>
+{% endblock %}
+{% extends "base.html" %}
+{% block content %}
+<section class="form-container">
+  <h2>Register Course</h2>
+  <form method="POST">
+    <label>Student ID:</label>
+    <input type="text" name="sid" required>
+
+    <label>Course ID:</label>
+    <input type="text" name="cid" required>
+
+    <button type="submit">Register</button>
+  </form>
+
+  {% if message %}
+  <p class="message">{{ message }}</p>
+  {% endif %}
+</section>
+{% endblock %}
+{% extends "base.html" %}
+{% block content %}
+<section class="dashboard">
+  <h2>📊 System Dashboard</h2>
+  <div class="stats">
+    <p><strong>Total Students:</strong> {{ stats.total_students }}</p>
+    <p><strong>Total Courses:</strong> {{ stats.total_courses }}</p>
+    <p><strong>Most Popular Course:</strong> {{ stats.most_popular_course }}</p>
+  </div>
+
+  <img src="https://cdn-icons-png.flaticon.com/512/4228/4228734.png" alt="dashboard" class="dash-img">
+</section>
+{% endblock %}

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Birthday</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #FFF0F5; /* Màu nền hồng nhạt */
+            display: grid;
+            place-items: center;
+            min-height: 100vh;
+            text-align: center;
+            color: #5D4037; /* Màu nâu tối */
+            margin: 0;
+        }
+
+        h1 {
+            color: #D81B60; /* Màu hồng đậm */
+            font-weight: 600;
+        }
+
+        /* ==== CSS cho hiệu ứng rung lắc khi nhập sai ==== */
+        @keyframes shake {
+          0%, 100% { transform: translateX(0); }
+          10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+          20%, 40%, 60%, 80% { transform: translateX(10px); }
+        }
+        .shake-error {
+          animation: shake 0.5s ease-in-out;
+        }
+
+        /* ==== CSS cho ảnh Capybara (Trang 2) ==== */
+        #capybara-image {
+            max-width: 100%; /* Đảm bảo ảnh không bị tràn */
+            height: auto;
+            max-height: 250px; /* Giới hạn chiều cao ảnh */
+            border-radius: 1rem; /* Bo tròn góc ảnh */
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1); /* Thêm bóng nhẹ */
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body class="bg-pink-50 font-sans">
+
+    <div id="page-1-password" class="min-h-screen flex flex-col items-center justify-center p-4">
+        
+        <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-sm text-center">
+            <h1 class="text-4xl font-bold text-pink-500 mb-4">
+                My birthday
+            </h1>
+            
+            <p class="text-gray-600 mb-6">
+                Vui lòng nhập mật mã để tiếp tục
+            </p>
+            
+            <input type="password" id="password-input" 
+                   class="w-full px-4 py-3 border-2 border-pink-200 rounded-lg text-center text-lg focus:outline-none focus:border-pink-400"
+                   placeholder="******">
+                   
+            <p id="error-message" class="text-red-500 h-6 mt-2 text-sm">
+                </p>
+            
+            <button id="submit-button" 
+                    class="w-full bg-pink-500 text-white font-bold py-3 px-6 rounded-lg mt-4 transition-transform duration-200 hover:bg-pink-600 active:scale-95">
+                Vào cổng
+            </button>
+        </div>
+        
+        <p class="text-pink-300 mt-8 text-sm">
+            Gợi ý: have 6 number 🎂
+        </p>
+    </div>
+
+    <div id="page-2-secret" class="hidden min-h-screen flex-col items-center justify-center p-4 text-center">
+        
+        <div class="bg-white p-12 rounded-2xl shadow-xl w-full max-w-md">
+            <span class="text-8xl mb-6">❤️❤️❤️</span>
+            <h1 class="text-4xl font-bold text-blue-500 mb-4">
+                CHÚC MỪNG!
+            </h1>
+            <p class="text-gray-700 text-lg mb-8">
+                Bạn đã mở khóa được trang bí mật!
+            </p>
+
+            <img id="capybara-image" 
+                 src= "Hinh-anh-chibi-chuot-lang-nuoc-chup-anh.webp"
+                 alt="Capybara dễ thương"
+                 class="mx-auto" />
+            
+            <button id="back-button" class="text-gray-500 text-sm hover:underline mt-4">
+                Quay lại
+            </button>
+        </div>
+        
+    </div>
+    
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+        
+            const CORRECT_PASSWORD = "07112005"; // Mật khẩu
+
+            const page1 = document.getElementById('page-1-password');
+            const page2 = document.getElementById('page-2-secret');
+            
+            const passwordInput = document.getElementById('password-input');
+            const submitButton = document.getElementById('submit-button');
+            const errorMessage = document.getElementById('error-message');
+            const backButton = document.getElementById('back-button');
+
+            function checkPassword() {
+                const enteredPassword = passwordInput.value;
+                
+                if (enteredPassword === CORRECT_PASSWORD) {
+                    page1.classList.add('hidden');
+                    page2.classList.remove('hidden');
+                    page2.classList.add('flex'); 
+                    
+                    errorMessage.textContent = '';
+                    
+                } else {
+                    errorMessage.textContent = 'Mật mã sai! Thử lại nha.';
+                    
+                    passwordInput.classList.add('shake-error');
+                    
+                    setTimeout(() => {
+                        passwordInput.classList.remove('shake-error');
+                    }, 500);
+                    
+                    passwordInput.value = '';
+                }
+            }
+
+            submitButton.addEventListener('click', checkPassword);
+            
+            passwordInput.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter') {
+                    checkPassword();
+                }
+            });
+
+            backButton.addEventListener('click', () => {
+                page2.classList.add('hidden');
+                page2.classList.remove('flex');
+                page1.classList.remove('hidden');
+                
+                passwordInput.value = '';
+            });
+            
+        });
+    </script>
+
+</body>
+</html>

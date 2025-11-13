@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Product Price - Strikethrough Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 24px;
+      background: #f6f8fb;
+      color: #222;
+    }
+
+    .product {
+      display: inline-block;
+      width: 260px;
+      padding: 16px;
+      margin: 12px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 6px 18px rgba(10,20,40,0.06);
+      text-align: center;
+    }
+
+    .product img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    .product-name {
+      font-size: 1.05rem;
+      margin: 6px 0 10px;
+      color: #073b4c;
+    }
+
+    .price {
+      font-size: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      align-items: baseline;
+    }
+
+    .old-price {
+      color: #888;
+      text-decoration: line-through; /* strikethrough */
+      font-size: 0.95rem;
+    }
+
+    .new-price {
+      color: #d32f2f;   /* đỏ */
+      font-weight: 700; /* in đậm */
+      font-size: 1.15rem;
+    }
+
+    /* tùy chọn: highlight khi rê chuột */
+    .product:hover {
+      transform: translateY(-4px);
+      transition: transform .18s ease;
+      box-shadow: 0 10px 28px rgba(10,20,40,0.12);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="product">
+    <img src="Bo-Hoa-Dep-Danh-Tang-Tinh-Yeu-HB009.jpg" alt="Flower A">
+    <div class="product-name">Product A</div>
+    <div class="price">
+      <div class="old-price">₫499,000</div>
+      <div class="new-price">₫349,000</div>
+    </div>
+  </div>
+
+  <div class="product">
+    <img src="Hinh-3.jpg" alt="Flower B">
+    <div class="product-name">Product B</div>
+    <div class="price">
+      <div class="old-price">$45.00</div>
+      <div class="new-price">$29.99</div>
+    </div>
+  </div>
+
+</body>
+</html>

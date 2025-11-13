@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Du Lịch Ngẫu Hứng - Khám Phá Bất Ngờ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS nội tuyến để dễ dàng xem demo */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        /* Header */
+        header {
+            background-color: #fff;
+            padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #007bff; /* Màu xanh chủ đạo */
+            text-decoration: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            margin-left: 25px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #007bff;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://source.unsplash.com/1600x900/?beach,travel') no-repeat center center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 100px 20px;
+            height: 400px; /* Chiều cao cố định */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            max-width: 700px;
+        }
+
+        .search-bar {
+            background-color: #fff;
+            padding: 15px 25px;
+            border-radius: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .search-bar input[type="text"] {
+            border: none;
+            outline: none;
+            flex-grow: 1;
+            font-size: 16px;
+            padding: 5px 10px;
+        }
+
+        .search-bar button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-bar button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Section Styling */
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        /* Deal Cards */
+        .deal-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .deal-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .deal-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .deal-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .deal-card-content {
+            padding: 20px;
+        }
+
+        .deal-card h3 {
+            margin-top: 0;
+            font-size: 20px;
+            color: #007bff;
+        }
+
+        .deal-card p {
+            font-size: 15px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .deal-card .price {
+            font-size: 22px;
+            font-weight: 700;
+            color: #28a745; /* Màu xanh lá cho giá */
+            margin-bottom: 15px;
+        }
+
+        .deal-card button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .deal-card button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Mystery Package Section */
+        .mystery-package {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 80px 20px;
+            border-radius: 10px;
+            margin-top: 50px;
+        }
+
+        .mystery-package h2 {
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+
+        .mystery-package p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+        }
+
+        .mystery-package button {
+            background-color: #ffc107; /* Màu vàng nổi bật */
+            color: #333;
+            border: none;
+            border-radius: 25px;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .mystery-package button:hover {
+            background-color: #e0a800;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #f4f7f6;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 60px;
+            font-size: 14px;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container navbar">
+            <a href="#" class="logo">Du Lịch Ngẫu Hứng</a>
+            <nav class="nav-links">
+                <a href="#">Trang Chủ</a>
+                <a href="#">Deal Hot</a>
+                <a href="#">Gói Bí Ẩn</a>
+                <a href="#">Hồ Sơ</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Khám Phá Bất Ngờ, Du Lịch Ngẫu Hứng</h1>
+        <p>Tìm kiếm các deal du lịch phút chót cực hấp dẫn hoặc thử thách bản thân với Gói Bí Ẩn đầy thú vị!</p>
+        <div class="search-bar">
+            <input type="text" placeholder="Tìm kiếm điểm đến, hoạt động...">
+            <button>Tìm kiếm</button>
+        </div>
+    </section>
+
+    <section class="container" style="padding-top: 50px;">
+        <h2 class="section-title">Deal Nổi Bật Phút Chót</h2>
+        <div class="deal-cards">
+            <div class="deal-card">
+                <img src="https://source.unsplash.com/400x300/?halongbay" alt="Vịnh Hạ Long">
+                <div class="deal-card-content">
+                    <h3>Vịnh Hạ Long - 3N2Đ</h3>
+                    <p>Khám phá kỳ quan thiên nhiên thế giới với giá không tưởng!</p>
+                    <div class="price">Chỉ từ 2.500.000 VNĐ</div>
+                    <button>Xem Deal</button>
+                </div>
+            </div>
+            <div class="deal-card">
+                <img src="https://source.unsplash.com/400x300/?danang,city" alt="Đà Nẵng">
+                <div class="deal-card-content">
+                    <h3>Đà Nẵng - 4N3Đ</h3>
+                    <p>Thành phố biển đáng sống với cầu Rồng, Bà Nà Hills!</p>
+                    <div class="price">Chỉ từ 3.200.000 VNĐ</div>
+                    <button>Xem Deal</button>
+                </div>
+            </div>
+            <div class="deal-card">
+                <img src="https://source.unsplash.com/400x300/?phuquoc,island" alt="Phú Quốc">
+                <div class="deal-card-content">
+                    <h3>Phú Quốc - 3N2Đ</h3>
+                    <p>Thiên đường đảo ngọc với những bãi biển trong xanh.</p>
+                    <div class="price">Chỉ từ 2.800.000 VNĐ</div>
+                    <button>Xem Deal</button>
+                </div>
+            </div>
+            <div class="deal-card">
+                <img src="https://source.unsplash.com/400x300/?dalat,mountains" alt="Đà Lạt">
+                <div class="deal-card-content">
+                    <h3>Đà Lạt Mộng Mơ - 3N2Đ</h3>
+                    <p>Thành phố ngàn hoa với khí hậu mát mẻ quanh năm.</p>
+                    <div class="price">Chỉ từ 2.000.000 VNĐ</div>
+                    <button>Xem Deal</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="mystery-package">
+            <h2>Bạn Dám Thử "Gói Bí Ẩn"?</h2>
+            <p>Chọn ngân sách, số ngày đi và để chúng tôi bất ngờ bạn với một điểm đến tuyệt vời! Địa điểm chỉ được tiết lộ 24 giờ trước khởi hành!</p>
+            <button>Khám Phá Gói Bí Ẩn</button>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Du Lịch Ngẫu Hứng. Mọi quyền được bảo lưu.</p>
+            <p>Liên hệ: <a href="mailto:info@dulichngauhung.com">info@dulichngauhung.com</a> | Điện thoại: 0123 456 789</p>
+        </div>
+    </footer>
+</body>
+</html>

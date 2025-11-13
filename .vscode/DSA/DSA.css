@@ -1,0 +1,111 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f4f6f9;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: #0d6efd;
+  color: white;
+  text-align: center;
+  padding: 1em 0;
+  box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+}
+
+nav {
+  margin-top: 10px;
+}
+
+nav a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+main {
+  padding: 30px;
+  max-width: 700px;
+  margin: auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+footer {
+  text-align: center;
+  padding: 1em;
+  font-size: 14px;
+  color: #555;
+}
+
+h2 {
+  color: #0d6efd;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+input {
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+button {
+  background: #0d6efd;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  margin-top: 15px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background: #0b5ed7;
+}
+
+.message {
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  text-align: center;
+}
+
+.home {
+  text-align: center;
+}
+
+.home-img {
+  width: 200px;
+  margin-top: 20px;
+}
+
+.dash-img {
+  width: 150px;
+  display: block;
+  margin: 20px auto;
+}
+
+.stats {
+  background: #eef2f5;
+  padding: 15px;
+  border-radius: 10px;
+}
