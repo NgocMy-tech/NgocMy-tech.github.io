@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register New Account</title>
+    <style>
+        /* Thêm một chút CSS để thanh tiêu đề đẹp hơn */
+        .header-bar {
+            background-color: #003366; /* Màu xanh đậm */
+            color: white;
+            padding: 5px 10px;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        table {
+            /* Giúp căn lề biểu mẫu ra giữa */
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <p align="right"><i>Web Design and Development</i></p>
+
+    <form name="registerForm">
+        <table border="0" cellpadding="5" cellspacing="0">
+            <tr>
+                <td colspan="2" class="header-bar">
+                    REGISTER NEW ACCOUNT
+                </td>
+            </tr>
+
+            <tr>
+                <td align="right">Username</td>
+                <td><input type="text" name="username"></td>
+            </tr>
+
+            <tr>
+                <td align="right">Password</td>
+                <td><input type="password" name="password"></td>
+            </tr>
+
+            <tr>
+                <td align="right">Confirm password</td>
+                <td><input type="password" name="confirm_password"></td>
+            </tr>
+
+            <tr>
+                <td align="right">Gender</td>
+                <td>
+                    <input type="radio" name="gender" value="male" checked> Male
+                    <input type="radio" name="gender" value="female"> Female
+                </td>
+            </tr>
+
+            <tr>
+                <td align="right">Phone</td>
+                <td><input type="text" name="phone"></td>
+            </tr>
+
+            <tr>
+                <td align="right">Email</td>
+                <td><input type="text" name="email"></td>
+            </tr>
+
+            <tr>
+                <td align="right">Favourite</td>
+                <td>
+                    <input type="checkbox" name="fav_music" value="music" checked> Music
+                    <input type="checkbox" name="fav_reading" value="reading" checked> Reading
+                </td>
+            </tr>
+
+            <tr>
+                <td align="right">Picture</td>
+                <td><input type="file" name="picture"></td>
+            </tr>
+
+            <tr>
+                <td align="right" valign="top">Description</td>
+                <td><textarea name="description" rows="5" cols="30"></textarea></td>
+            </tr>
+
+            <tr>
+                <td align="right">Education level</td>
+                <td>
+                    <select name="education">
+                        <option value="aptech" selected>Aptech</option>
+                        <option value="other">Other</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td align="right" valign="top">Language</td>
+                <td>
+                    <select name="language" multiple size="4">
+                        <option value="vietnamese" selected>Vietnamese</option>
+                        <option value="english">English</option>
+                        <option value="french">French</option>
+                        <option value="japanese">Japanese</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" value="Register">
+                    <input type="reset" value="Reset">
+                </td>
+            </tr>
+
+        </table>
+    </form>
+
+</body>
+</html>

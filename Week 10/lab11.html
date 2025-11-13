@@ -1,0 +1,46 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script language="javascript">
+    var fstnb = prompt("Enter number A");
+    var tatb = prompt("Enter number B");
+    
+    if(fstnb == null || fstnb == "" || isNaN(fstnb)) {
+        alert("Number A is formated incorrect ");
+    } else if(tatb == null || tatb == "" || isNaN(tatb)) {
+        alert("Number B is formated incorrect ");
+    } else {
+        var result = parseFloat(fstnb) + parseFloat(tatb);
+        alert("Result is " + 
+        fstnb + " + " + tatb + " = " + result);
+    }
+</script>
+</head>
+<body>
+</body>
+</html>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script language="javascript">
+    var fstnb = prompt("Enter any number");
+    
+    if(fstnb == null || fstnb == "" || isNaN(fstnb))
+    {
+        document.write("<font color='red'>You must enter a number</font>");
+    } else if ( fstnb % 2 == 0)
+    {
+        document.write("<font color='green'>"+fstnb + " is an even number</font>");
+    }
+    else
+    {
+        document.write("<font color='blue'>"+fstnb + " is an odd number</font>");
+    }
+</script>
+</head>
+<body>
+</body>
+</html>
