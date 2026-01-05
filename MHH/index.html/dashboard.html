@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+  <div class="sidebar">
+    <div class="menu-title">Menu</div>
+    <a href="dashboard.html">Home</a>
+    <a href="indexx.html">Course Registration</a>
+    <a href="timetable.html">Student Timetable</a>
+    <button class="logout" id="logoutBtn">Logout</button>
+  </div>
+
+  <div class="content">
+    <h2>Dashboard</h2>
+    <p><b>Name:</b> <span id="name"></span></p>
+    <p><b>Role:</b> <span id="role"></span></p>
+
+    <div class="hero">
+      <img src="Roma-La-Sapienza-Universitesi-pavaedu-513453-e1618835630378.jpg" />
+    </div>
+  </div>
+
+  <script>
+    const role = localStorage.getItem("role") || "student";
+    const username = localStorage.getItem("username") || "guest";
+
+    document.getElementById("name").textContent = username;
+    document.getElementById("role").textContent = role;
+
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+      localStorage.clear();
+      window.location.href = "index.html";
+    });
+  </script>
+</body>
+</html>

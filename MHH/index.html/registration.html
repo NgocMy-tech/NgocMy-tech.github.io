@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Course Registration</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+  <div class="sidebar">
+    <div class="menu-title">Menu</div>
+    <a href="dashboard.html">Home</a>
+    <a class="active" href="registration.html">Course Registration</a>
+    <a href="timetable.html">Student Timetable</a>
+    <button class="logout" id="logoutBtn">Logout</button>
+  </div>
+
+  <div class="content">
+    <h2>Course Registration</h2>
+
+    <input id="search" class="search" placeholder="Search course by code or name..." />
+
+    <table class="table" id="courseTable">
+      <thead>
+        <tr>
+          <th>Code</th>
+          <th>Course</th>
+          <th>Credits</th>
+          <th>Day</th>
+          <th>Time</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <script type="module">
+    import { loadCSV } from "./js/loadCSV.js";
+
+    const tbody = document.querySelector("#courseTable tbody");
+    const search = document.getElementById("search");
+
+    const courses = await loadCSV("Courses (1).csv");
+    const sections = await loadCSV("Sections (1).csv");
+
+    function render(filterText="") {
+      tbody.innerHTML = "";
+      const q = filterText.toLowerCase();
+
+      sections.forEach(sec => {
+        const c = courses.find(x => x.course_id === sec.course_id);
+        if (!c) return;
+
+        const text = `${c.course_id} ${c.course_name}`.toLowerCase();
+        if (q && !text.includes(q)) return;
+
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${c.course_id}</td>
+          <td>${c.course_name}</td>
+          <td>${c.credits}</td>
+          <td>${sec.day}</td>
+          <td>${sec.time}</td>
+          <td><button class="btn" data-sec="${sec.section_id}">Register</button></td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    tbody.addEventListener("click", (e) => {
+      if (!e.target.matches("button")) return;
+      const secId = e.target.dataset.sec;
+      alert("Registered (demo) for section: " + secId);
+    });
+
+    search.addEventListener("input", () => render(search.value));
+    render();
+
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+      localStorage.clear();
+      window.location.href = "index.html";
+    });
+  </script>
+</body>
+</html>
