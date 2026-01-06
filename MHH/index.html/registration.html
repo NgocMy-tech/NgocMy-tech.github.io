@@ -35,13 +35,13 @@
   </div>
 
   <script type="module">
-    import { loadCSV } from "./js/loadCSV.js";
+    import { loadCSV } from "./loadCSV.js";
 
     const tbody = document.querySelector("#courseTable tbody");
     const search = document.getElementById("search");
 
-    const courses = await loadCSV("Courses (1).csv");
-    const sections = await loadCSV("Sections (1).csv");
+    const courses = await loadCSV("./Courses (1).csv");
+    const sections = await loadCSV("./Sections (1).csv");
 
     function render(filterText="") {
       tbody.innerHTML = "";

@@ -1,0 +1,147 @@
+* { box-sizing: border-box; }
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f6f7fb;
+  margin: 0;
+  padding: 24px;
+  color: #222;
+}
+
+.wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+h1 { margin: 0 0 14px; font-size: 22px; }
+
+/* FLEXBOX: chia form thành 2 cột trái/phải */
+form {
+  display: flex;
+  gap: 18px;            /* khoảng cách giữa 2 cột */
+  align-items: flex-start;
+  flex-wrap: wrap;      /* màn nhỏ thì tự xuống dòng */
+}
+
+.left, .right {
+  flex: 1 1 320px;      /* mỗi cột tối thiểu ~320px, co giãn theo màn hình */
+  padding: 12px;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  background: #fafafa;
+}
+
+.field { margin-bottom: 14px; }
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+input[type="text"], input[type="password"], input[type="file"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cfd6e4;
+  border-radius: 10px;
+  outline: none;
+  background: #fff;
+}
+
+input:focus { border-color: #6a7cff; }
+
+.hint {
+  font-size: 12px;
+  color: #666;
+  margin-top: 6px;
+  line-height: 1.35;
+}
+
+/* Thông báo lỗi: ẩn mặc định, JS bật lên khi sai */
+.error {
+  font-size: 12px;
+  color: #c62828;
+  margin-top: 6px;
+  display: none;
+}
+
+/* Khối Strength */
+.strength {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px dashed #cfd6e4;
+  background: #fff;
+}
+
+.bar {
+  height: 10px;
+  border-radius: 999px;
+  background: #e8ecf6;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.bar > div {
+  height: 100%;
+  width: 0%;
+  background: #999;          /* JS sẽ đổi màu theo weak/medium/strong */
+  transition: width 0.2s ease;
+}
+
+.strengthText {
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+button {
+  border: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.btnPrimary { background: #3f51ff; color: #fff; }
+.btnSecondary { background: #e9ecff; color: #2b2f77; }
+
+/* Preview ảnh */
+.previewBox {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.preview {
+  width: 90px;
+  height: 90px;
+  border-radius: 12px;
+  border: 1px solid #cfd6e4;
+  background: #fff;
+  object-fit: cover;
+  display: block;
+}
+
+.previewTitle { font-weight: 700; }
+
+.success {
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #e7f7ee;
+  border: 1px solid #b7e4c7;
+  color: #146c43;
+  display: none; /* ẩn, JS bật lên khi đúng hết */
+  font-weight: 700;
+}

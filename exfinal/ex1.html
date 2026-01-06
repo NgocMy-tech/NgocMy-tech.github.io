@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exercise 1 - Registration Form</title>
+
+  <!-- Link file CSS riêng -->
+  <link rel="stylesheet" href="ex1.css" />
+</head>
+<body>
+  <div class="wrap">
+    <h1>Exercise 1: User Registration Form</h1>
+
+    <!-- novalidate: tắt validation mặc định của trình duyệt để dùng JS tự check -->
+    <form id="regForm" novalidate>
+      <!-- Cột trái -->
+      <div class="left">
+        <div class="field">
+          <label for="username">Username</label>
+          <input id="username" type="text" placeholder="5-15 characters" />
+          <p class="hint">Rule: username must be 5–15 characters.</p>
+          <p class="error" id="usernameErr">Username must be 5–15 characters.</p>
+        </div>
+
+        <div class="field">
+          <label for="password">Password</label>
+          <input id="password" type="password" placeholder="Must contain letters and numbers" />
+          <p class="hint">Rule: password must contain both letters and numbers.</p>
+          <p class="error" id="passwordErr">Password must contain letters and numbers.</p>
+
+          <!-- Khối hiển thị độ mạnh mật khẩu -->
+          <div class="strength" aria-live="polite">
+            <div class="strengthText" id="strengthText">Strength: -</div>
+            <div class="bar">
+              <div id="strengthBar"></div>
+            </div>
+            <p class="hint" id="strengthHint">Type to see weak / medium / strong in real-time.</p>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="btnPrimary" type="submit">Register</button>
+          <button class="btnSecondary" type="reset">Reset</button>
+        </div>
+
+        <div class="success" id="successMsg">✅ Register success!</div>
+      </div>
+
+      <!-- Cột phải -->
+      <div class="right">
+        <div class="field">
+          <label for="avatar">Profile Picture</label>
+
+          <!-- accept giới hạn loại file người dùng chọn -->
+          <input id="avatar" type="file" accept=".jpg,.jpeg,.png,image/jpeg,image/png" />
+
+          <p class="hint">Rule: image file must be JPG or PNG.</p>
+          <p class="error" id="avatarErr">Only JPG/PNG files are allowed.</p>
+        </div>
+
+        <div class="previewBox">
+          <img id="preview" class="preview" alt="Preview" />
+          <div>
+            <div class="previewTitle">Preview</div>
+            <p class="hint" id="fileInfo">No file selected.</p>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <!-- Link file JS riêng -->
+  <script src="ex1.js"></script>
+</body>
+</html>

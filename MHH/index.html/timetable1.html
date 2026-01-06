@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Timetable</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<div class="container">
+  <aside class="sidebar">
+    <h3>Menu</h3>
+    <a href="indexx.html">Home</a>
+    <a href="registration1.html">Course Registration</a>
+    <a class="active" href="timetable1.html">Student Timetable</a>
+    <button class="logout">Logout</button>
+  </aside>
+
+
+  <main class="content">
+    <h1>Student Timetable</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Day</th>
+          <th>Time</th>
+          <th>Course</th>
+          <th>Section_id</th>
+          <th>Lecturer_id</th>
+          <th>Room</th>
+        </tr>
+      </thead>
+      <tbody id="timetable-body"></tbody>
+    </table>
+  </main>
+</div>
+
+<script type="module">
+import { loadCSV } from "./loadCSV.js";
+
+// demo: sinh viên đang đăng nhập
+const currentStudentId = "SV001";
+
+const courses = await loadCSV("./Courses (1).csv");
+const sections = await loadCSV("./Sections (1).csv");
+const enrollments = await loadCSV("./Enrollments (1).csv");
+
+// lấy section_id mà sinh viên đã đăng ký
+const registeredSectionIds = enrollments
+  .filter(e => e.student_id === currentStudentId)
+  .map(e => e.section_id);
+
+// map sang section + course
+const rows = registeredSectionIds
+  .map(id => sections.find(s => s.section_id === id))
+  .filter(Boolean)
+  .map(sec => {
+    const course = courses.find(c => c.course_id === sec.course_id);
+    return {
+      day: sec.day,
+      time: sec.time,
+      course: course ? course.course_name : sec.course_id,
+      sectionId: sec.section_id,
+      lecturerId: sec.lecturer_id,
+      room: sec.room
+    };
+  });
+
+// sắp xếp theo thứ trong tuần
+const dayOrder = {
+  Monday: 1, Tuesday: 2, Wednesday: 3,
+  Thursday: 4, Friday: 5, Saturday: 6, Sunday: 7
+};
+
+rows.sort((a, b) =>
+  (dayOrder[a.day] || 99) - (dayOrder[b.day] || 99) ||
+  a.time.localeCompare(b.time)
+);
+
+// render ra bảng
+const tbody = document.getElementById("timetable-body");
+tbody.innerHTML = "";
+
+rows.forEach(r => {
+  const tr = document.createElement("tr");
+  tr.innerHTML = `
+    <td>${r.day}</td>
+    <td>${r.time}</td>
+    <td>${r.course}</td>
+    <td>${r.section_id}</td>
+    <td>${r.lecturer_id}</td>
+    <td>${r.room}</td>
+  `;
+  tbody.appendChild(tr);
+});
+</script>
+
+</body>
+</html>

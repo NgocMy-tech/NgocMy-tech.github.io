@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exercise 2 - Price List Table</title>
+
+  <link rel="stylesheet" href="ex2.css" />
+</head>
+<body>
+  <div class="wrap">
+    <h1>Exercise 2: Computer Parts Price List</h1>
+
+    <!-- id để JS lấy bằng getElementById -->
+    <table id="priceTable">
+      <thead>
+        <tr>
+          <th>Part</th>
+          <th>Brand</th>
+          <th>Price</th>
+          <th>Note</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>CPU</td>
+          <td>Intel&reg;</td>
+          <td>$250</td>
+          <td>Warranty &copy; 2026</td>
+        </tr>
+        <tr>
+          <td>GPU</td>
+          <td>NVIDIA&trade;</td>
+          <td>$450</td>
+          <td>Best seller</td>
+        </tr>
+        <tr>
+          <td>RAM</td>
+          <td>Corsair&trade;</td>
+          <td>$80</td>
+          <td>16GB DDR4</td>
+        </tr>
+        <tr>
+          <td>SSD</td>
+          <td>Samsung&reg;</td>
+          <td>$120</td>
+          <td>NVMe M.2</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- bắt buộc: dùng changeColor() -->
+    <button onclick="changeColor()">Change Color</button>
+
+    <p class="note">
+      Entities used: &copy;, &trade;, &reg;
+    </p>
+  </div>
+
+  <script src="ex2.js"></script>
+</body>
+</html>

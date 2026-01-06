@@ -26,10 +26,10 @@
   </div>
 
   <script type="module">
-    import { loadCSV } from "./js/loadCSV.js";
+    import { loadCSV } from "./loadCSV.js";
 
-    const courses = await loadCSV("./data/courses.csv");
-    const sections = await loadCSV("./data/sections.csv");
+    const courses = await loadCSV("./Courses (1).csv");
+    const sections = await loadCSV("./Sections (1).csv");
 
     // demo: lấy 5 section đầu
     const picked = sections.slice(0, 5);
@@ -55,3 +55,4 @@
   </script>
 </body>
 </html>
+
