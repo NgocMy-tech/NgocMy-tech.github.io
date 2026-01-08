@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exercise 7 - Contact Form</title>
+
+  <link rel="stylesheet" href="ex7.css" />
+</head>
+<body>
+  <div class="wrap">
+    <h1>Exercise 7: Contact Form</h1>
+
+    <form id="contactForm" novalidate>
+      <div class="field">
+        <label for="name">Name</label>
+        <input id="name" type="text" placeholder="Your name" />
+      </div>
+
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" type="email" placeholder="your@email.com" />
+      </div>
+
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea id="message" rows="5" placeholder="Write your message..."></textarea>
+      </div>
+
+      <button type="submit">Submit</button>
+
+      <p class="error" id="errorMsg">Please fill in all fields.</p>
+      <p class="success" id="successMsg">✅ Sent successfully!</p>
+    </form>
+  </div>
+
+  <script src="ex7.js"></script>
+</body>
+</html>

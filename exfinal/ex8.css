@@ -1,0 +1,78 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f6f7fb;
+  margin: 0;
+  padding: 24px;
+  color: #222;
+}
+
+.wrap {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+h1 { margin: 0 0 14px; font-size: 22px; }
+
+form {
+  border: 1px solid #cfd6e4;
+  border-radius: 12px;
+  padding: 14px;
+  background: #fafafa;
+}
+
+/* yêu cầu: CSS Grid layout */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.field { background: #fff; border: 1px solid #eee; border-radius: 12px; padding: 12px; }
+
+label { display: block; font-weight: 700; margin-bottom: 6px; }
+.labelTitle { margin: 0 0 6px; font-weight: 800; }
+
+input[type="text"], input[type="email"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cfd6e4;
+  border-radius: 10px;
+  outline: none;
+}
+
+.inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-right: 12px;
+  font-weight: 600;
+}
+
+button {
+  margin-top: 14px;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+  background: #3f51ff;
+  color: #fff;
+}
+
+.error, .success {
+  margin-top: 10px;
+  font-weight: 700;
+  display: none;
+}
+
+.error { color: #c62828; }
+.success { color: #146c43; }
+
+/* responsive: màn nhỏ thì 1 cột */
+@media (max-width: 700px) {
+  .grid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exercise 9 - Product Showcase</title>
+
+  <link rel="stylesheet" href="ex9.css" />
+</head>
+<body>
+  <div class="wrap">
+    <h1>Exercise 9: Product Showcase</h1>
+
+    <button class="toggleBtn" onclick="togglePrice()">Toggle Price</button>
+
+    <div class="grid">
+      <div class="card">
+        <h2>Starter Pack&reg;</h2>
+        <p class="price priceTag" data-usd="10" data-eur="9">€9</p>
+        <p class="desc">Basic tools → good for beginners.</p>
+      </div>
+
+      <div class="card">
+        <h2>Pro Pack</h2>
+        <p class="price priceTag" data-usd="20" data-eur="18">€18</p>
+        <p class="desc">More features → faster work.</p>
+      </div>
+
+      <div class="card">
+        <h2>Designer Kit</h2>
+        <p class="price priceTag" data-usd="15" data-eur="13">€13</p>
+        <p class="desc">Clean UI → modern look.</p>
+      </div>
+
+      <div class="card">
+        <h2>Ultimate Bundle</h2>
+        <p class="price priceTag" data-usd="30" data-eur="27">€27</p>
+        <p class="desc">Everything included → best value.</p>
+      </div>
+    </div>
+
+    <p class="note">Entities used: &reg; (®), € , →</p>
+  </div>
+
+  <script src="ex9.js"></script>
+</body>
+</html>

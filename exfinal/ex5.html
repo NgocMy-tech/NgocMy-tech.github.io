@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exercise 5 - Tabs</title>
+
+  <link rel="stylesheet" href="ex5.css" />
+</head>
+<body>
+  <div class="wrap">
+    <h1>Exercise 5: Tabbed Content</h1>
+    
+
+    <!-- Thanh tab -->
+    <div class="tabs">
+      <button class="tabBtn active" onclick="switchTab('features', this)">
+        <span class="arrow">→</span> Features&reg;
+      </button>
+
+      <button class="tabBtn" onclick="switchTab('pricing', this)">
+        <span class="arrow">→</span> Pricing&euro;
+      </button>
+
+      <button class="tabBtn" onclick="switchTab('reviews', this)">
+        <span class="arrow">→</span> Reviews
+      </button>
+
+      <button class="tabBtn" onclick="switchTab('support', this)">
+        <span class="arrow">→</span> Support
+      </button>
+    </div>
+
+    <!-- Nội dung tab -->
+    <div class="tabContent">
+      <div class="panel show" id="features">
+        <h2>Features®</h2>
+        <p>- Fast performance</p>
+        <p>- Easy to use</p>
+        <p>- Secure</p>
+      </div>
+
+      <div class="panel" id="pricing">
+        <h2>Pricing€</h2>
+        <p>Basic: 5&euro;/month</p>
+        <p>Pro: 10&euro;/month</p>
+        <p>Enterprise: 20&euro;/month</p>
+      </div>
+
+      <div class="panel" id="reviews">
+        <h2>Reviews</h2>
+        <p>"Good product!"</p>
+        <p>"Worth the money."</p>
+      </div>
+
+      <div class="panel" id="support">
+        <h2>Support</h2>
+        <p>Email: support@example.com</p>
+        <p>Hotline: 1900-xxx-xxx</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="ex5.js"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f6f7fb;
+  margin: 0;
+  padding: 24px;
+  color: #222;
+}
+
+.wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+h1 { margin: 0 0 14px; font-size: 22px; }
+
+.tabs {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+/* Tab states: active / inactive */
+.tabBtn {
+  border: 1px solid #cfd6e4;
+  background: #fafafa;
+  padding: 10px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* arrow mặc định ẩn (tab inactive) */
+.arrow {
+  visibility: hidden;
+  font-weight: 900;
+}
+
+/* tab active */
+.tabBtn.active {
+  background: #3f51ff;
+  color: #fff;
+  border-color: #3f51ff;
+}
+
+/* arrow hiện khi active */
+.tabBtn.active .arrow {
+  visibility: visible;
+}
+
+/* panel mặc định ẩn */
+.panel {
+  display: none;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 14px;
+  background: #fafafa;
+}
+
+/* panel hiện ra khi có class show */
+.panel.show {
+  display: block;
+}
+.wrap span{
+  font-weight: bold;
+}

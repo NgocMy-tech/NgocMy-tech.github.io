@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exercise 3 - Grade Calculator</title>
+
+  <link rel="stylesheet" href="ex3.css" />
+</head>
+<body>
+  <div class="wrap">
+    <h1>Exercise 3: Student Grade Calculator</h1>
+
+    <!-- Bảng 4 môn học và điểm -->
+    <table id="gradeTable">
+      <thead>
+        <tr>
+          <th>Subject</th>
+          <th>Grade (0 - 10)</th>
+          <th>Note</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Web Design</td>
+          <td><input class="gradeInput" type="number" min="0" max="10" step="0.1" value="8.0" /></td>
+          <td>Standard &reg;</td>
+        </tr>
+        <tr>
+          <td>Database</td>
+          <td><input class="gradeInput" type="number" min="0" max="10" step="0.1" value="7.5" /></td>
+          <td>Rule § 1</td>
+        </tr>
+        <tr>
+          <td>Programming</td>
+          <td><input class="gradeInput" type="number" min="0" max="10" step="0.1" value="9.0" /></td>
+          <td>Target ≥ 8.0</td>
+        </tr>
+        <tr>
+          <td>English</td>
+          <td><input class="gradeInput" type="number" min="0" max="10" step="0.1" value="6.5" /></td>
+          <td>Target ≥ 6.0</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <button id="calcBtn" onclick="calculateAverage()">Calculate Average</button>
+
+    <div class="resultBox">
+      <p id="resultText">Average: -</p>
+    </div>
+
+    <p class="note">
+      Entities used: &reg; (®), §, ≥
+    </p>
+  </div>
+
+  <script src="ex3.js"></script>
+</body>
+</html>
