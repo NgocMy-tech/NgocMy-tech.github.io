@@ -1,0 +1,74 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f6f7fb;
+  margin: 0;
+  padding: 24px;
+  color: #222;
+}
+
+.wrap {
+  max-width: 850px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+h1 { margin: 0 0 14px; font-size: 22px; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px;
+  text-align:left;
+  padding: 10px 8px
+}
+
+
+/* Xen kẽ màu dòng (alternating row colors) */
+tbody tr:nth-child(odd) {
+  background: #fafafa;
+}
+tbody tr:nth-child(even) {
+  background: #ffffff;
+}
+
+input.gradeInput {
+  width: 120px;
+  padding: 8px 10px;
+  border: 1px solid #cfd6e4;
+  border-radius: 10px;
+  outline: none;
+  background: #fff;
+}
+
+input.gradeInput:focus {
+  border-color: #6a7cff;
+}
+
+button {
+  margin-top: 14px;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+  background: #3f51ff;
+  color: #fff;
+}
+
+.resultBox {
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #e9ecff;
+  border: 1px solid #cfd6e4;
+  font-weight: 700;
+}
+
+.note {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #444;
+}

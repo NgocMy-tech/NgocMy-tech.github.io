@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exercise 8 - Newsletter</title>
+
+  <link rel="stylesheet" href="ex3.css" />
+</head>
+<body>
+  <div class="wrap">
+    <h1>Exercise 8: Newsletter Subscription</h1>
+
+    <form id="newsForm" novalidate>
+      <!-- GRID container -->
+      <div class="grid">
+        <div class="field">
+          <label for="fullName">Full Name</label>
+          <input id="fullName" type="text" placeholder="Rule: name must be at least 3 characters" />
+          <p class="error" id="usernameErr">Username must be at least 3 characters.</p>
+        </div>
+        </div>
+
+        <div class="field">
+          <label for="newsEmail">Email</label>
+          <input id="newsEmail" type="email" placeholder="your@email.com" />
+        </div>
+
+        <!-- Radio: Subscription type -->
+        <div class="field">
+          <p class="labelTitle">Subscription Type</p>
+          <label class="inline">
+            <input type="radio" name="subType" value="Monthly" checked />
+            Monthly
+          </label>
+          <label class="inline">
+            <input type="radio" name="subType" value="Yearly" />
+            Yearly
+          </label>
+        </div>
+
+        <!-- Checkboxes: Interests -->
+        <div class="field">
+          <p class="labelTitle">Interests</p>
+          <label class="inline">
+            <input class="interest" type="checkbox" value="Tech" />
+            Tech
+          </label>
+          <label class="inline">
+            <input class="interest" type="checkbox" value="Design" />
+            Design
+          </label>
+          <label class="inline">
+            <input class="interest" type="checkbox" value="Business" />
+            Business
+          </label>
+        </div>
+      </div>
+
+      <button type="submit">Subscribe</button>
+
+      <p class="error" id="newsError">Please enter valid email and select at least one interest.</p>
+      <p class="success" id="newsSuccess">✅ Subscription successful!</p>
+    </form>
+  </div>
+
+  <script src="ex3.js"></script>
+</body>
+</html>
+
+

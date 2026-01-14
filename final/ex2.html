@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exercise 4 - Restaurant Menu</title>
+
+  <link rel="stylesheet" href="ex2.css" />
+</head>
+<body>
+  <div class="wrap">
+    <h1>Exercise 4: Restaurant Menu</h1>
+
+    <button id="filterBtn" onclick="filterMenu()">Filter Menu (Vegetarian: OFF)</button>
+
+    <!-- Appetizers® -->
+    <section class="menuSection">
+      <h2>Appetizers&reg;</h2>
+
+      <div class="menuItem vegetarian item">
+        <div>
+          <p class="name">Spring Rolls</p>
+          <p class="desc">Crispy rolls with veggies</p>
+        </div>
+        <p class="price">≥ $3.50</p>
+      </div>
+
+      <div class="menuItem item">
+        <div>
+          <p class="name">Chicken Wings</p>
+          <p class="desc">Spicy sauce</p>
+        </div>
+        <p class="price">≥ $5.00</p>
+      </div>
+    </section>
+
+    <!-- Main Course$ -->
+    <section class="menuSection">
+      <h2>Main Course$</h2>
+
+      <div class="menuItem vegetarian item">
+        <div>
+          <p class="name">Veggie Pasta</p>
+          <p class="desc">Tomato sauce + mushrooms</p>
+        </div>
+        <p class="price">≥ $7.50</p>
+      </div>
+
+      <div class="menuItem item">
+        <div>
+          <p class="name">Beef Steak</p>
+          <p class="desc">Medium rare</p>
+        </div>
+        <p class="price">≥ $12.00</p>
+      </div>
+    </section>
+
+    <!-- Desserts -->
+    <section class="menuSection">
+      <h2>Desserts</h2>
+
+      <div class="menuItem vegetarian item">
+        <div>
+          <p class="name">Fruit Salad</p>
+          <p class="desc">Fresh seasonal fruits</p>
+        </div>
+        <p class="price">≥ $4.00</p>
+      </div>
+
+      <div class="menuItem item">
+        <div>
+          <p class="name">Cheesecake</p>
+          <p class="desc">Creamy classic</p>
+        </div>
+        <p class="price">≥ $4.50</p>
+      </div>
+    </section>
+
+    <!-- Drinks -->
+    <section class="menuSection">
+      <h2>Drinks</h2>
+
+      <div class="menuItem vegetarian item">
+        <div>
+          <p class="name">Lemon Tea</p>
+          <p class="desc">Cold drink</p>
+        </div>
+        <p class="price">≥ $2.50</p>
+      </div>
+
+      <div class="menuItem item">
+        <div>
+          <p class="name">Milk Coffee</p>
+          <p class="desc">Vietnamese style</p>
+        </div>
+        <p class="price">≥ $3.00</p>
+      </div>
+    </section>
+
+    <p class="note">
+      Filter uses: filterMenu() + getElementsByClassName() and toggles vegetarian items.
+    </p>
+  </div>
+
+  <script src="ex2.js"></script>
+</body>
+</html>
